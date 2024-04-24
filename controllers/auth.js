@@ -1,4 +1,5 @@
 import User from "../models/user.js";
+import bcrypt from "bcrypt";
 
 export const getSignup = async (req, res) => {
   res.render("auth/signup");
@@ -6,10 +7,13 @@ export const getSignup = async (req, res) => {
 
 export const postSignup = async (req, res) => {
   try {
-    const user = new User({ ...req.body });
+    const { name, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 12);
+    const user = new User({ name: name, password: hashedPassword });
     await user.save();
     res.redirect("/");
   } catch (error) {
     console.log(error);
+    res.redirect("/signup");
   }
 };
