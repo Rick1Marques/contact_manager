@@ -8,7 +8,7 @@ export const getSignup = async (req, res) => {
 export const postSignup = async (req, res) => {
   try {
     const { name, password } = req.body;
-    const user = await User.findOne({ name: name });
+    let user = await User.findOne({ name: name });
     if (user) {
       res.redirect("/signup");
     }
