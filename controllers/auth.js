@@ -8,12 +8,15 @@ export const getSignup = async (req, res) => {
 export const postSignup = async (req, res) => {
   try {
     const { name, password } = req.body;
+    const user = await User.findOne({ name: name });
+    if (user) {
+      res.redirect("/signup");
+    }
     const hashedPassword = await bcrypt.hash(password, 12);
-    const user = new User({ name: name, password: hashedPassword });
+    user = new User({ name: name, password: hashedPassword });
     await user.save();
     res.redirect("/");
   } catch (error) {
     console.log(error);
-    res.redirect("/signup");
   }
 };
