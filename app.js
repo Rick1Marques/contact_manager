@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import path from "path";
 import dotenv from "dotenv";
+import session from "express-session";
+import MongoStore from "connect-mongo";
 
 import authRoutes from "./routes/auth.js";
 
@@ -12,11 +14,24 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
 
+const store = MongoStore.create({
+  mongoUrl: process.env.DATABASE_URL,
+  collectionName: "sessions",
+});
+
 app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  session({
+    secret: "LongStringSecreat",
+    resave: false,
+    saveUninitialized: false,
+    store: store,
+  })
+);
 
 app.use(authRoutes);
 
