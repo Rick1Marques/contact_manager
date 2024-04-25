@@ -20,3 +20,22 @@ export const postSignup = async (req, res) => {
     console.log(error);
   }
 };
+
+export const getLogin = (req, res) => {
+  res.render("auth/login");
+};
+
+export const postLogin = async (req, res) => {
+  const { name, password } = req.body;
+  let user = await User.findOne({ name: name });
+  if (!user) {
+    res.redirect("/login");
+  }
+  const doMatch = await bcrypt.compare(password, user.password);
+  if (doMatch) {
+    console.log("good pass");
+    res.redirect("/");
+  }
+  console.log("No good");
+  res.redirect("/login");
+};
