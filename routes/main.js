@@ -10,4 +10,6 @@ router.get("/add-contact", isAuth, mainController.getAddContact);
 
 router.post("/add-contact", isAuth, mainController.postAddContact);
 
+router.get("/contacts", isAuth, mainController.getContacts);
+
 export default router;
