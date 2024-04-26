@@ -12,6 +12,14 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  contactList: [
+    {
+      contactId: {
+        type: Schema.ObjectId,
+        ref: "Contact",
+      },
+    },
+  ],
 });
 
 export default mongoose.model("User", userSchema);
