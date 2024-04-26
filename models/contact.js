@@ -23,6 +23,11 @@ const contactSchema = new Schema({
   email: {
     type: String,
   },
+  userId: {
+    type: Schema.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 
 export default mongoose.model("Contact", contactSchema);

@@ -37,7 +37,6 @@ export const postLogin = async (req, res) => {
     req.session.isLoggedIn = true;
     req.session.user = user;
     await req.session.save();
-    console.log(req.session);
     return res.redirect("/");
   }
   console.log("No good");
