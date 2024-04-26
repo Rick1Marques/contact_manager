@@ -8,6 +8,7 @@ import MongoStore from "connect-mongo";
 import User from "./models/user.js";
 
 import authRoutes from "./routes/auth.js";
+import mainRoutes from "./routes/main.js";
 
 dotenv.config();
 
@@ -49,6 +50,7 @@ app.use(async (req, res, next) => {
 });
 
 app.use(authRoutes);
+app.use(mainRoutes);
 
 async function startServer() {
   try {
