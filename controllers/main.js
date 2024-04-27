@@ -28,3 +28,34 @@ export const getContact = async (req, res) => {
     contact: contact,
   });
 };
+
+export const getEditContact = async (req, res) => {
+  const contactId = req.params.contactId;
+  const contact = await Contact.findById(contactId);
+  res.render("main/edit-contact", {
+    pageTitle: "Edit Contact",
+    contact: contact,
+  });
+};
+
+export const postEditContact = async (req, res) => {
+  const {
+    contactId,
+    name: nameUpdated,
+    surname: surnameUpdated,
+    type: typeUpdated,
+    group: groupUpdated,
+    telefon: telefonUpdated,
+    email: emailUpdated,
+  } = req.body;
+  const contact = await Contact.findById(contactId);
+  contact.name = nameUpdated;
+  contact.surname = surnameUpdated;
+  contact.type = typeUpdated;
+  contact.group = groupUpdated;
+  contact.telefon = telefonUpdated;
+  contact.email = emailUpdated;
+  await contact.save();
+  console.log("Contact updated!");
+  res.redirect("/contacts");
+};
