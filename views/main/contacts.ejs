@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contacts</title>
+<%- include('../includes/head.ejs') %>
   </head>
   <body>
     <main>
@@ -11,6 +6,7 @@
       <article>
         <header>
           <h2><%= contact.surname %>, <%= contact.name %></h2>
+          <a href="/contacts/<%= contact._id %>">Detail</a>
         </header>
       </article>
       <% }) %> <% } else { %>

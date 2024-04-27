@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Contact</title>
+<%- include('../includes/head.ejs') %>
   </head>
   <body>
-    <form action="/add-contact" method="POST">
-      <label for="name">Name</label>
-      <input name="name" type="text" />
-      <label for="surname">Surname</label>
-      <input name="surname" type="text" />
-      <label for="type">Type</label>
-      <input name="type" type="text" />
-      <label for="group">Group</label>
-      <input name="group" type="text" />
-      <label for="telefon">Telefon</label>
-      <input name="telefon" type="text" />
-      <label for="email">Email</label>
-      <input name="email" type="email" />
-      <button type="submit">Add Contact!</button>
-    </form>
+    <main>
+      <form action="/add-contact" method="POST">
+        <label for="name">Name</label>
+        <input name="name" type="text" />
+        <label for="surname">Surname</label>
+        <input name="surname" type="text" />
+        <label for="type">Type</label>
+        <input name="type" type="text" />
+        <label for="group">Group</label>
+        <input name="group" type="text" />
+        <label for="telefon">Telefon</label>
+        <input name="telefon" type="text" />
+        <label for="email">Email</label>
+        <input name="email" type="email" />
+        <button type="submit">Add Contact!</button>
+      </form>
+    </main>
   </body>
 </html>

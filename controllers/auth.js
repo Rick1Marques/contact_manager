@@ -2,7 +2,9 @@ import User from "../models/user.js";
 import bcrypt from "bcrypt";
 
 export const getSignup = async (req, res) => {
-  res.render("auth/signup");
+  res.render("auth/signup", {
+    pageTitle: "Signup",
+  });
 };
 
 export const postSignup = async (req, res) => {
@@ -22,7 +24,9 @@ export const postSignup = async (req, res) => {
 };
 
 export const getLogin = (req, res) => {
-  res.render("auth/login");
+  res.render("auth/login", {
+    pageTitle: "login",
+  });
 };
 
 export const postLogin = async (req, res) => {

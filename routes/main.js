@@ -12,4 +12,6 @@ router.post("/add-contact", isAuth, mainController.postAddContact);
 
 router.get("/contacts", isAuth, mainController.getContacts);
 
+router.get("/contacts/:contactId", isAuth, mainController.getContact);
+
 export default router;
