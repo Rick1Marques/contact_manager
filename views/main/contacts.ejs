@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts</title>
+  </head>
+  <body>
+    <main>
+      <% if(contactList.length > 0) {%> <% contactList.forEach(contact => { %>
+      <article>
+        <header>
+          <h2><%= contact.surname %>, <%= contact.name %></h2>
+        </header>
+      </article>
+      <% }) %> <% } else { %>
+      <h1>There are no contacts on your list</h1>
+      <% } %>
+    </main>
+  </body>
+</html>
