@@ -6,8 +6,12 @@
       <article>
         <header>
           <h2><%= contact.surname %>, <%= contact.name %></h2>
-          <a href="/contacts/<%= contact._id %>">Detail</a>
         </header>
+        <a href="/contacts/<%= contact._id %>">Detail</a>
+        <form action="/delete-contact" method="post">
+          <input name="contactId" type="hidden" value="<%= contact._id %>">
+          <button type="submit">Delete</button>
+        </form>
       </article>
       <% }) %> <% } else { %>
       <h1>There are no contacts on your list</h1>

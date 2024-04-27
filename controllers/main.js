@@ -59,3 +59,10 @@ export const postEditContact = async (req, res) => {
   console.log("Contact updated!");
   res.redirect("/contacts");
 };
+
+export const postDeleteContact = async (req, res) => {
+  const contactId = req.body.contactId;
+  await Contact.deleteOne({ _id: contactId });
+  console.log("Contact deleted!");
+  res.redirect("/contacts");
+};
