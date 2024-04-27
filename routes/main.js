@@ -18,4 +18,6 @@ router.get("/edit-contact/:contactId", isAuth, mainController.getEditContact);
 
 router.post("/edit-contact", isAuth, mainController.postEditContact);
 
+router.post("/delete-contact", isAuth, mainController.postDeleteContact);
+
 export default router;
