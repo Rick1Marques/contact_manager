@@ -1,0 +1,23 @@
+<%- include('../includes/head.ejs') %>
+  </head>
+  <body>
+    <main>
+      <form action="/edit-contact" method="POST">
+        <label for="name">Name</label>
+        <input name="name" type="text" value="<%= contact.name %>"/>
+        <label for="surname">Surname</label>
+        <input name="surname" type="text" value="<%= contact.surname %>"/>
+        <label for="type">Type</label>
+        <input name="type" type="text" value="<%= contact.type %>"/>
+        <label for="group">Group</label>
+        <input name="group" type="text" value="<%= contact.group %>"/>
+        <label for="telefon">Telefon</label>
+        <input name="telefon" type="text" value="<%= contact.telefon %>"/>
+        <label for="email">Email</label>
+        <input name="email" type="email" value="<%= contact.email %>"/>
+        <input type="hidden" name="contactId" value="<%= contact._id %>">
+        <button type="submit">Edit Contact!</button>
+      </form>
+    </main>
+  </body>
+</html>
