@@ -2,11 +2,15 @@
   </head>
   <body>
     <main>
+
+      <% if(errorMessage){ %>
+        <h1><%= errorMessage %></h1>
+        <% } %>
       <form action="/login" method="POST">
         <label for="name">Name</label>
-        <input name="name" type="text" />
+        <input name="name" type="text" value="<%= oldInput.name  %>"/>
         <label for="password">Password</label>
-        <input name="password" type="password" />
+        <input name="password" type="password" value="<%= oldInput.password  %>"/>
         <button type="submit">Login!</button>
       </form>
     </main>
